@@ -1,0 +1,5 @@
+dns_addr: 127.0.0.1
+dns_port: 53
+http_addr: 127.0.0.1
+http_port: 9090
+responseIP: 127.0.0.1
