@@ -1,4 +1,4 @@
-package main 
+package main
 
 import (
 	"encoding/json"
@@ -11,7 +11,7 @@ import (
 )
 
 type Tracker struct {
-	Id 		string
+	Id string
 }
 
 var (
@@ -70,7 +70,7 @@ func httpStart() {
 func templatedHandler(w http.ResponseWriter, r *http.Request) {
 	log.Println(r.Header)
 	log.Println(r.Header.Get("X-Forwarded-For"))
-	tmplt := template.New("hello world")
+	tmplt := template.New("homePage")
 	tmplt, _ = tmplt.Parse(templateStr)
 
 	uid, err := uuid.NewUUID()
@@ -87,13 +87,13 @@ func apiHandler(w http.ResponseWriter, r *http.Request) {
 	var demo Provider
 
 	keys, ok := r.URL.Query()["key"]
-    
-    if !ok || len(keys[0]) < 1 {
-        log.Println("key is missing")
-        demo = Provider{"key is missing"}
-    } else {
-    	demo = db[keys[0]]
-    }
+
+	if !ok || len(keys[0]) < 1 {
+		log.Println("key is missing")
+		demo = Provider{"key is missing"}
+	} else {
+		demo = db[keys[0]]
+	}
 
 	jsonData, err := json.Marshal(demo)
 	if err != nil {

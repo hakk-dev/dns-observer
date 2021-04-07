@@ -4,7 +4,7 @@ A little demo project to detect which DNS provider a visitor is using.
 
 **Screenshot**:
 
-![screenshot](https://bytes.hakk.dev/bmcculley/dns-observer/raw/master/screenshot.png)
+![screenshot](screenshot.png)
 
 ## Setup
 
