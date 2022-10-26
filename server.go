@@ -39,9 +39,9 @@ var templateStr = `<!DOCTYPE html>
 		http.open("GET", url+"?"+params, true);
 		http.onreadystatechange = function()
 		{
-		    if(http.readyState == 4 && http.status == 200) {
-		        var obj = JSON.parse(http.responseText);
-		        document.getElementById("provider").innerHTML = "Device DNS provider is: " + obj.Name;
+			if(http.readyState == 4 && http.status == 200) {
+				var obj = JSON.parse(http.responseText);
+				document.getElementById("provider").innerHTML = "Device DNS provider is: " + obj.Name;
 		    }
 		}
 		http.send(null);

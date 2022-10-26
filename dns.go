@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
-    "net"
+	"net"
 	"strconv"
 	"strings"
 
@@ -33,16 +33,16 @@ func parseQuery(m *dns.Msg, remote_addr string) {
 		switch q.Qtype {
 		case dns.TypeA:
 			ipAddr, _, err := net.SplitHostPort(remote_addr)
-            if err != nil {
-                log.Println(err)
-            }
+			if err != nil {
+				log.Println(err)
+			}
 			log.Println("remote ip:", ipAddr)
 			// add to the db map
 			id := getId(q.Name)
 			provider := checkProvider(ipAddr)
 			log.Println(provider)
 			db[id] = Provider{provider}
-			rr, err := dns.NewRR(fmt.Sprintf("%s 300 A %s", q.Name, responseIP))
+			rr, err := dns.NewRR(fmt.Sprintf("%s 30 A %s", q.Name, responseIP))
 			if err == nil {
 				m.Answer = append(m.Answer, rr)
 			}
