@@ -53,8 +53,8 @@ func checkProvider(ipAddr string) string {
 
 func configSetup() {
 	// read in the ranges
-	f := map[string]string{"Cloudflare": "iplists/cloudflare_ipv4.txt", 
-        "NextDNS": "iplists/nextdns_ipv4.txt"}
+	f := map[string]string{"Cloudflare": "iplists/cloudflare_ipv4.txt",
+		"NextDNS": "iplists/nextdns_ipv4.txt"}
 
 	for k, v := range f {
 		lines, err := readZone(v)
